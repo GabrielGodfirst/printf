@@ -31,15 +31,17 @@ char *convert_to_octal(unsigned int n)
 */
 int print_octal(va_list av)
 {
-	unsigned int n = va_arg(av, unsigned int), len = 0, i;
+	unsigned int n = va_arg(av, unsigned int), len = 0;
 	char *s = convert_to_octal(n);
+	int i;
 
-	i = _strlen(s) - 1;
-	while (i)
+	for (i = 31; i >= 0; i--)
 	{
-		_putchar(s[i]);
-		len++;
-		i--;
+		if (s[i] != '0' || len)
+		{
+			_putchar(s[i]);
+			len++;
+		}
 	}
 	free(s);
 	return (len);

@@ -41,16 +41,17 @@ char *convert_to_hex(unsigned int n)
 */
 int print_lower_hex(va_list av)
 {
-	unsigned int n = va_arg(av, unsigned int), len = 0, strlen;
+	unsigned int n = va_arg(av, unsigned int), len = 0;
 	char *s = convert_to_hex(n);
+	int i;
 
-	strlen = _strlen(s);
-	strlen--;
-	while (strlen)
+	for (i = 31; i >= 0; i--)
 	{
-		_putchar(s[strlen]);
-		len++;
-		strlen--;
+		if (s[i] != '0' || len)
+		{
+			_putchar(s[i]);
+			len++;
+		}
 	}
 	free(s);
 	return (len);
