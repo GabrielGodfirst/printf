@@ -24,6 +24,13 @@ char *convert_to_hex(unsigned int n);
 int print_upper_hex(va_list av);
 char *convert_to_HEX(unsigned int n);
 int _printf(const char *format, ...);
+/**
+ * struct sp - a sp struct
+ * @spicifier: spicify
+ * @func: function
+ *
+ * Description: just a lone dog struct in a big kitty world
+ */
 typedef struct sp
 {
 	char spicifier;
